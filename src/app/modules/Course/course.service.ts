@@ -103,7 +103,6 @@ const updateCourseInToDb = async (
   // }
 };
 
-// const getAllCoursesDataFromDb = async (
 //   queryParams: Record<string, unknown>,
 // ) => {
 //   const page = (queryParams?.page as number) || 1;
