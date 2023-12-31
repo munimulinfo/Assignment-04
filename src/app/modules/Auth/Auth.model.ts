@@ -20,8 +20,13 @@ const userSchema = new Schema<TUser>(
     passwordChangedAt: {
       type: Date,
       default: null,
+      select: false,
     },
-    previousPassword: { type: [subPasswordSchema], required: true },
+    previousPassword: {
+      type: [subPasswordSchema],
+      required: true,
+      select: false,
+    },
     role: {
       type: String,
       required: true,

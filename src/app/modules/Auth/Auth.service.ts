@@ -57,6 +57,7 @@ const userChangePassword = async (
   const user = await UserModel.findById(userData?._id).select(
     '+password +previousPassword',
   );
+
   if (!user) {
     throw new Error('user not fount');
   }
@@ -89,7 +90,7 @@ const userChangePassword = async (
     );
   }
 
-  //compare new password use before old password
+  // compare new password use before old password
   const isPasswordUsedBefore = await Promise.all(
     (user?.previousPassword || []).map(async (prevPassword) => {
       const isMatch = await passwordHelpers.comparePassword(
@@ -102,7 +103,6 @@ const userChangePassword = async (
         : null;
     }),
   );
-
   const matchingPassword = isPasswordUsedBefore?.find((match) => match);
   if (matchingPassword) {
     throw new Error(
@@ -116,7 +116,7 @@ const userChangePassword = async (
 
   const updatedPreviousPasswords = [
     { password: newHashedPassword, timestamp: new Date() },
-    ...(user?.previousPassword || []).slice(0, 1),
+    ...(user?.previousPassword || []).slice(0, 2),
   ];
 
   const updatePassword = await UserModel.findByIdAndUpdate(
@@ -128,6 +128,7 @@ const userChangePassword = async (
     },
     {
       new: true,
+      runValidators: true,
     },
   );
 

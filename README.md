@@ -2,7 +2,7 @@
 
 ### Live Server Link: https://assignment-03-pink.vercel.app
 
-### Document Link: https://docs.google.com/document/d/1tTjXhEcwn9q3ImzW2W8RWa2psm3k-bs_SX2MayU06dY/edit?usp=sharing
+### Document Link: https://documenter.getpostman.com/view/28970433/2s9YsDjEYD?fbclid=IwAR0qSYrHaRRmnHSTW_bCf2iAh7odeMDNgoSEIUHpeDAFF1OEAeIUDo2Td8Q
 
 - At first clone my GitHub repo. then install all the packages.
 - To install all the packages. go to the terminal and command
